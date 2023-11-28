@@ -20,8 +20,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} relative`}>
         <Header />
-        <div className="pt-14 min-h-screen flex flex-col">
-          <main className="h-full flex-1">{children}</main>
+        <div className="pt-14 min-h-screen flex flex-col overflow-hidden">
+          <main className="h-full flex-1 pb-14">{children}</main>
           <Footer />
         </div>
       </body>

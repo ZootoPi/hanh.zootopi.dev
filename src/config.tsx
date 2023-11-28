@@ -59,7 +59,7 @@ const config = {
             href="https://course.vietai.org/courses/build-applications-with-openai-api"
             target="_blank"
           >
-            Build Applications with OpenAI API
+            <span>Build Applications with OpenAI API</span>
           </a>{" "}
           course at{" "}
           <a href="https://course.vietai.org/" target="_blank">
@@ -233,7 +233,7 @@ const config = {
     {
       school: "University of Montpellier, France",
       link: "https://www.umontpellier.fr/en/",
-      image: "/images/logo_UM.webp",
+      image: "/images/logo_um.svg",
       degree:
         "Master of Science, Technology, Health, Information Technology and Communication Infrastructure Engineering for Big Data Analysis",
       date: "2019-2020",

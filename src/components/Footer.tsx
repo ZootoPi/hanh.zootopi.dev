@@ -3,9 +3,11 @@ import Image from "next/image";
 
 export const Footer = () => {
   return (
-    <div className="flex h-24 justify-center items-center gap-3">
-      <div className="flex flex-1 justify-end">{config.footer.copyright}</div>
-      <div className="flex flex-1 gap-2">
+    <footer className="flex h-24 sm:gap-3 max-sm:flex-col">
+      <div className="flex flex-1 sm:justify-end items-center justify-center">
+        {config.footer.copyright}
+      </div>
+      <div className="flex flex-1 gap-2 items-center max-sm:justify-center">
         {config.info.socials.map((social) => (
           <a
             href={social.url}
@@ -22,6 +24,6 @@ export const Footer = () => {
           </a>
         ))}
       </div>
-    </div>
+    </footer>
   );
 };

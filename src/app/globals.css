@@ -9,7 +9,10 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-end-rgb));
   font-size: 1.125rem;
+}
+
+a {
+  @apply underline text-blue-500 hover:text-blue-800 visited:text-purple-600;
 }

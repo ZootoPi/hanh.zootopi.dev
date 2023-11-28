@@ -7,10 +7,18 @@ export default function Home() {
   );
   return (
     <div className="max-w-6xl mx-auto p-5 flex gap-10 flex-col">
-      <div className="flex my-6 gap-10">
-        <img src="/images/me.jpg" alt={config.info.name} className="w-64" />
-        <div>
-          <h1 className="text-4xl mb-10">
+      <div className="flex my-6 gap-10 md:flex-row flex-col">
+        <div className="min-w-64">
+          <Image
+            src="/images/me.jpg"
+            alt={config.info.name}
+            width={256}
+            height={256}
+            className="mx-auto"
+          />
+        </div>
+        <div className="flex-1">
+          <h1 className="text-4xl mb-10 max-md:text-center">
             Hello, I&apos;m {config.info.shortName} 🔥
           </h1>
           <p className="">{config.info.brief}</p>
@@ -20,7 +28,7 @@ export default function Home() {
         <h2 className="text-4xl mb-8">NEWS</h2>
         <ul className="gap-2 flex flex-col">
           {config.news.map((news, index) => (
-            <li key={index} className="flex gap-2">
+            <li key={index} className="flex sm:flex-row flex-col gap-2">
               <p className="whitespace-nowrap">
                 <strong>{news.date}</strong>:
               </p>
@@ -45,14 +53,17 @@ export default function Home() {
 
         <div className="flex flex-col mt-6 gap-10">
           {config.publications.map((publication, index) => (
-            <div key={index} className="flex gap-5">
-              <Image
-                src={publication.image}
-                alt={publication.title}
-                height={256}
-                width={256}
-              />
-              <div>
+            <div key={index} className="flex gap-5 sm:flex-row flex-col">
+              <div className="min-w-64">
+                <Image
+                  src={publication.image}
+                  alt={publication.title}
+                  height={256}
+                  width={256}
+                  className="mx-auto"
+                />
+              </div>
+              <div className="flex-1">
                 <h3 className="text-2xl font-semibold">
                   <a href={publication.link} target="_blank">
                     {publication.title}
