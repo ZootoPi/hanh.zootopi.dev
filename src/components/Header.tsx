@@ -47,11 +47,15 @@ export const Header = () => {
       </header>
       <div
         className={`absolute top-0 left-0 min-h-screen w-full z-50 bg-[#000A] ${
-          openSidebar ? "" : "hidden"
+          openSidebar ? "" : "-translate-x-full"
         }`}
         onClick={onCloseSidebar}
       >
-        <div className="min-h-screen bg-black w-64">
+        <div
+          className={`min-h-screen bg-black w-64 transition delay-100 ${
+            openSidebar ? "" : "-translate-x-full"
+          }`}
+        >
           <div className="flex flex-col gap-4 px-6 py-14">
             {config.header.links.map((link) => {
               const textColor =
