@@ -21,7 +21,7 @@ export default function Home() {
           <h1 className="text-4xl mb-10 max-md:text-center">
             Hello, I&apos;m {config.info.shortName} 🔥
           </h1>
-          <p className="">{config.info.brief}</p>
+          <p className="whitespace-pre-wrap">{config.info.brief}</p>
         </div>
       </div>
       <div>

@@ -2,19 +2,8 @@ const config = {
   info: {
     name: "TRAN Thi Hong Hanh",
     shortName: "Hanh Tran",
-    brief: (
-      <>
-        I am a Ph.D. student in the Cotuelle program between La Rochelle
-        University, France, and Jožef Stefan Institute, Slovenia supervised by
-        Prof. Antoine Doucet and Assist. Prof. Senja Pollak. Previously, I
-        worked as a Data Scientist at Samsung SDSV.
-        <br />
-        <br />
-        My research interest lies between natural language processing and
-        machine learning, information extraction, low-resourced languages,
-        large-scale language models, and prompting.
-      </>
-    ),
+    brief: `I am a Ph.D. student in the Cotuelle program between La Rochelle University, France, and Jožef Stefan Institute, Slovenia supervised by Prof. Antoine Doucet and Assist. Prof. Senja Pollak. Previously, I worked as a Data Scientist at Samsung SDSV.
+My research interest lies between natural language processing and machine learning, information extraction, low-resourced languages, large-scale language models, and prompting.`,
     avatar: "/images/avatar.jpg",
     email: "thi.tran@univ-lr.fr",
     nationality: "Vietnamese",

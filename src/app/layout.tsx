@@ -9,6 +9,11 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: `${config.info.name}`,
+  openGraph: {
+    images: "/images/Screenshot.png",
+    title: `${config.info.name}`,
+    description: `${config.info.brief}`,
+  },
 };
 
 export default function RootLayout({
