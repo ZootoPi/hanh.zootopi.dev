@@ -148,6 +148,7 @@ My research interest lies between natural language processing and machine learni
         "Jose G Moreno",
         "Antoine Doucet",
       ],
+      date: "2023",
       published:
         "Proceedings of the The 17th International Workshop on Semantic Evaluation (SemEval-2023)",
       summary:
@@ -165,6 +166,7 @@ My research interest lies between natural language processing and machine learni
         "Antoine Doucet",
         "Senja Pollak",
       ],
+      date: "Cham: Springer International Publishing, 2022",
       published:
         "International Conference on Asian Digital Libraries (ICADL, 2022)",
       summary:
@@ -181,6 +183,7 @@ My research interest lies between natural language processing and machine learni
         "Antoine Doucet",
         "Senja Pollak",
       ],
+      date: "Cham: Springer Nature Switzerland, 2022",
       published: "International Conference on Discovery Science (DS, 2022)",
       summary:
         "We evaluate the abilities of cross-lingual and multilingual versus monolingual learning in the cross-domain to automatic term extraction.",
@@ -197,6 +200,7 @@ My research interest lies between natural language processing and machine learni
         "Jose G Moreno",
         "Senja Pollak",
       ],
+      date: "Cham: Springer International Publishing, 2021",
       published:
         "International Conference on Asian Digital Libraries (ICADL, 2021)",
       summary:
@@ -209,7 +213,17 @@ My research interest lies between natural language processing and machine learni
       school: "University of La Rochelle, France",
       link: "https://ent.univ-lr.fr/",
       degree: "Ph.D Student in Cotuelle Program",
-      date: "2021-2024",
+      date: "2021-now",
+      program: (
+        <>
+          doctoral program between{" "}
+          <strong>La Rochelle University, France</strong>, and{" "}
+          <strong>Jozef Stefan Institute, Slovenia.</strong>
+        </>
+      ),
+      additional: [
+        "Topic: Cross-lingual cross-domain terminology extraction on less-resourced languages",
+      ],
     },
     {
       school: "WorldQuant University, USA",

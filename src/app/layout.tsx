@@ -9,8 +9,9 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: `${config.info.name}`,
+  metadataBase: new URL("https://hanh.zootopi.dev"),
   openGraph: {
-    images: "https://hanh.zootopi.dev/images/Screenshot.png",
+    images: "/images/Screenshot.png",
     title: `${config.info.name}`,
     description: `${config.info.brief}`,
   },
