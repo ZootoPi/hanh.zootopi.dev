@@ -9,7 +9,7 @@ My research interest lies between natural language processing and machine learni
     nationality: "Vietnamese",
     address: "La Rochelle, France",
     titles: "Ph.D. Student",
-    languages: "Vietnamese, English C1, French B1",
+    languages: "Vietnamese, English, French",
     socials: [
       {
         label: "Google Scholar",
