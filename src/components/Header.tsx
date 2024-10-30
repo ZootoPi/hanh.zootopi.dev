@@ -1,9 +1,27 @@
 "use client";
 
-import config from "@/config";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+
+const links = [
+  {
+    label: "Home",
+    path: "/",
+  },
+  {
+    label: "Education",
+    path: "/education",
+  },
+  {
+    label: "Side projects",
+    path: "/side-projects",
+  },
+  {
+    label: "Resume",
+    path: "/resume",
+  },
+];
 
 export const Header = () => {
   const [openSidebar, setOpenSidebar] = useState(false);
@@ -21,6 +39,7 @@ export const Header = () => {
     <>
       <header className="absolute top-0 h-14 w-full">
         <div className="sm:hidden h-full flex px-6">
+          {/* biome-ignore lint/a11y/useButtonType: <explanation> */}
           <button className="my-auto" onClick={onOpenSidebar}>
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Hamburger_icon.svg"
@@ -30,9 +49,9 @@ export const Header = () => {
           </button>
         </div>
         <div className="w-full h-full flex justify-end gap-4 px-6 max-sm:hidden">
-          {config.header.links.map((link) => {
+          {links.map((link) => {
             const textColor =
-              pathname == link.path ? "text-black" : "text-[#0008]";
+              pathname === link.path ? "text-black" : "text-[#0008]";
             return (
               <Link
                 href={link.path}
@@ -45,6 +64,7 @@ export const Header = () => {
           })}
         </div>
       </header>
+      {/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
       <div
         className={`absolute top-0 left-0 min-h-screen w-full z-50 bg-[#000A] ${
           openSidebar ? "" : "-translate-x-full"
@@ -57,9 +77,9 @@ export const Header = () => {
           }`}
         >
           <div className="flex flex-col gap-4 px-6 py-14">
-            {config.header.links.map((link) => {
+            {links.map((link) => {
               const textColor =
-                pathname == link.path ? "text-white" : "text-[#fff8]";
+                pathname === link.path ? "text-white" : "text-[#fff8]";
               return (
                 <Link
                   href={link.path}

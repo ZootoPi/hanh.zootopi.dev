@@ -1,19 +1,21 @@
-import type { Metadata } from "next";
-import { Inter, Lato } from "next/font/google";
-import "./globals.css";
-import { Header } from "@/components/Header";
-import config from "@/config";
 import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+
+import "./globals.css";
+
+export const runtime = "edge";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: `${config.info.name}`,
+  title: `Hanh's Portfolio`,
   metadataBase: new URL("https://hanh.zootopi.dev"),
   openGraph: {
     images: "/images/Screenshot.png",
-    title: `${config.info.name}`,
-    description: `${config.info.brief}`,
+    title: `Hanh's Portfolio`,
+    description: `Hanh's Portfolio`,
   },
 };
 
