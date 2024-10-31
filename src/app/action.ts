@@ -35,3 +35,39 @@ export async function getPost(slug: string) {
     }
   )(slug);
 }
+
+export async function getSettings() {
+  return unstable_cache(
+    async () => {
+      const res = await fetch("https://cms.tihado.com/api/settings", {
+        headers: {
+          Authorization: `Bearer ${process.env.TAP_API_KEY}`,
+        },
+        next: {
+          revalidate: 300, // 5 minutes
+        },
+      });
+
+      if (!res.ok) {
+        throw new Error("Failed to fetch data from CMS");
+      }
+
+      const data = (await res.json()) as {
+        settings: {
+          socials: {
+            label: string;
+            url: string;
+            icon: string;
+          }[];
+        };
+      };
+
+      return data.settings;
+    },
+    ["settings"],
+    {
+      revalidate: 300, // 5 minutes
+      tags: ["settings"],
+    }
+  )();
+}
