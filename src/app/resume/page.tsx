@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { getPost } from "../action";
 
+export const revalidate = 300; // 5 minutes
+
 export default async function Resume() {
   const post = await getPost("resume");
 

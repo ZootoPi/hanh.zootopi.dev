@@ -1,5 +1,7 @@
 import { getPost } from "../action";
 
+export const revalidate = 300; // 5 minutes
+
 export default async function Education() {
   const post = await getPost("education");
 
