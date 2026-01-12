@@ -17,22 +17,46 @@ function Link({ href, children }: { href: string; children: React.ReactNode }) {
 export default function Home() {
   const newsItems = [
     {
-      date: "January 2025",
+      date: "December 2025",
       content: (
         <p>
-          I became a reviewer for{" "}
-          <Link href="https://conll.org/">
-            The SIGNLL Conference on Computational Natural Language Learning
-          </Link>{" "}
-          (CoNLL 2025).
+          <strong>Vidzly</strong> won 1st Prize for Creativity at{" "}
+          <Link href="https://huggingface.co/spaces/MCP-1st-Birthday/vidzly">
+            Agents & MCP Hackathon 2025
+          </Link>
+          .
         </p>
       ),
     },
     {
+      date: "December 2025",
+      content: (
+        <p>
+          <strong>EatAble</strong> won 3rd Prize at{" "}
+          <Link href="https://github.com/tihado/AMD_Robot_Hackathon">
+            AMD Robotics Hackathon 2025
+          </Link>
+          .
+        </p>
+      ),
+    },
+    // {
+    //   date: "January 2025",
+    //   content: (
+    //     <p>
+    //       I became a reviewer for{" "}
+    //       <Link href="https://conll.org/">
+    //         The SIGNLL Conference on Computational Natural Language Learning
+    //       </Link>{" "}
+    //       (CoNLL 2025).
+    //     </p>
+    //   ),
+    // },
+    {
       date: "September 2024",
       content: (
         <p>
-          I joined as an NLP Engineer in{" "}
+          I joined as an NLP Engineer at{" "}
           <Link href="https://www.arkhn.com/">Arkhn</Link>, Paris, France.
         </p>
       ),
@@ -41,12 +65,12 @@ export default function Home() {
       date: "September 2024",
       content: (
         <p>
-          One of the 3 accepted papers got "Best Paper Awards" at the{" "}
+          One of my accepted papers received "Best Paper Award" at the{" "}
           <Link href="https://tpdl2024.nuk.si/">
             28th International Conference on Theory and Practice of Digital
             Libraries
-          </Link>
-          (TPDL), 2024.
+          </Link>{" "}
+          (TPDL 2024).
         </p>
       ),
     },
@@ -54,45 +78,49 @@ export default function Home() {
       date: "August 2024",
       content: (
         <p>
-          I taught{" "}
+          I taught the{" "}
           <Link href="https://course.vietai.org/courses/GENERATIVE-AI-FOR-EVERYONE-2024">
             Generative AI for Everyone
           </Link>{" "}
-          course at <Link href="https://course.vietai.org/">VietAI</Link>
+          course at <Link href="https://course.vietai.org/">VietAI</Link>.
         </p>
       ),
     },
     {
       date: "July 2024",
-      content:
-        'I gave seminars about "Terminology in the era of LLMs" at the University of Coimbra, Portugal, and the University of Malta, Malta.',
-    },
-    {
-      date: "June 2024",
       content: (
         <p>
-          I became a reviewer for{" "}
-          <Link href="https://conll.org/">
-            The SIGNLL Conference on Computational Natural Language Learning
-          </Link>{" "}
-          (CoNLL 2024) and{" "}
-          <Link href="https://coling2025.org/">
-            The 31st International Conference on Computational Linguistics
-          </Link>{" "}
-          (COLING 2025).
+          I gave seminars about "Terminology in the era of LLMs" at the
+          University of Coimbra, Portugal, and the University of Malta, Malta.
         </p>
       ),
     },
+    // {
+    //   date: "June 2024",
+    //   content: (
+    //     <p>
+    //       I became a reviewer for{" "}
+    //       <Link href="https://conll.org/">
+    //         The SIGNLL Conference on Computational Natural Language Learning
+    //       </Link>{" "}
+    //       (CoNLL 2024) and{" "}
+    //       <Link href="https://coling2025.org/">
+    //         The 31st International Conference on Computational Linguistics
+    //       </Link>{" "}
+    //       (COLING 2025).
+    //     </p>
+    //   ),
+    // },
     {
       date: "February 2024",
       content: (
         <p>
-          I became the Program Committee for the
+          I became a Program Committee member for the{" "}
           <Link href="https://sites.google.com/view/textgraphs2024">
             17th Workshop on Graph-Based Natural Language Processing
             (TextGraphs-17)
           </Link>{" "}
-          co-located with ACL-2024 in Bangkok, Thailand
+          co-located with ACL-2024 in Bangkok, Thailand.
         </p>
       ),
     },
@@ -100,19 +128,19 @@ export default function Home() {
       date: "December 2023",
       content: (
         <p>
-          I became Student Session Chairs at{" "}
+          I became Student Session Chair at{" "}
           <Link href="https://2024.esslli.eu/">
             35th European Summer School in Logic, Language, and Information
           </Link>{" "}
-          in Leuven, Belgium.
+          (ESSLLI 2024) in Leuven, Belgium.
         </p>
       ),
     },
     {
-      date: "Oct 2023",
+      date: "October 2023",
       content: (
         <p>
-          I taught{" "}
+          I taught the{" "}
           <Link href="https://course.vietai.org/courses/build-applications-with-openai-api">
             Build Applications with OpenAI API
           </Link>{" "}
@@ -121,52 +149,59 @@ export default function Home() {
       ),
     },
     {
-      date: "Sep 2023",
+      date: "September 2023",
       content: (
         <p>
-          I became a Program Committee of{" "}
+          I became a Program Committee member for{" "}
           <Link href="https://contents2023.kulak.kuleuven.be/">
             Computational Terminology in NLP & Translation Studies (ConTeNTS)
           </Link>{" "}
-          at <Link href="https://ranlp.org/ranlp2023/">RANLP 2023</Link>
+          at <Link href="https://ranlp.org/ranlp2023/">RANLP 2023</Link>.
         </p>
       ),
     },
-    {
-      date: "July - August 2023",
-      content: (
-        <p>
-          I joined{" "}
-          <Link href="https://2023.esslli.eu/">
-            34TH EUROPEAN SUMMER SCHOOL IN LOGIC, LANGUAGE AND INFORMATION
-          </Link>{" "}
-          in Ljubljana, Slovenia.
-        </p>
-      ),
-    },
-    {
-      date: "June - July 2023",
-      content: (
-        <p>
-          I joined{" "}
-          <Link href="https://mlss2023.mlinpl.org/">
-            MACHINE LEARNING SUMMER SCHOOL ON APPLICATIONS IN SCIENCE
-          </Link>{" "}
-          in Krakow, Poland.
-        </p>
-      ),
-    },
+    // {
+    //   date: "July - August 2023",
+    //   content: (
+    //     <p>
+    //       I attended the{" "}
+    //       <Link href="https://2023.esslli.eu/">
+    //         34th European Summer School in Logic, Language and Information
+    //       </Link>{" "}
+    //       (ESSLLI 2023) in Ljubljana, Slovenia.
+    //     </p>
+    //   ),
+    // },
+    // {
+    //   date: "June - July 2023",
+    //   content: (
+    //     <p>
+    //       I attended the{" "}
+    //       <Link href="https://mlss2023.mlinpl.org/">
+    //         Machine Learning Summer School on Applications in Science
+    //       </Link>{" "}
+    //       (MLSS 2023) in Krakow, Poland.
+    //     </p>
+    //   ),
+    // },
+    // {
+    //   date: "May 2023",
+    //   content: (
+    //     <p>
+    //       I attended{" "}
+    //       <Link href="https://2023.eacl.org/">
+    //         The 17th Conference of the European Chapter of the Association for
+    //         Computational Linguistics
+    //       </Link>{" "}
+    //       (EACL 2023) in Dubrovnik, Croatia.
+    //     </p>
+    //   ),
+    // },
     {
       date: "May 2023",
       content: (
         <p>
-          I joined{" "}
-          <Link href="https://2023.eacl.org/">
-            The 17th Conference of the European Chapter of the Association for
-            Computational Linguistics
-          </Link>{" "}
-          in Dubrovnik, Croatia.
-          <br />I taught the{" "}
+          I taught the{" "}
           <Link href="https://course.vietai.org/courses/chatgpt-bard-for-everyone">
             ChatGPT/Bard for Everyone
           </Link>{" "}
@@ -174,22 +209,72 @@ export default function Home() {
         </p>
       ),
     },
-    {
-      date: "March 2023",
-      content: (
-        <p>
-          I joined
-          <Link href="https://www.santannapisa.it/it/alta-formazione/eelisa-spring-school-ethos-tekhne-new-generation-ai-researchers">
-            EELISA spring school "Ethos + Tekhne: a new generation of AI
-            researchers
-          </Link>{" "}
-          in Pisa, Italy.
-        </p>
-      ),
-    },
+    // {
+    //   date: "March 2023",
+    //   content: (
+    //     <p>
+    //       I attended the{" "}
+    //       <Link href="https://www.santannapisa.it/it/alta-formazione/eelisa-spring-school-ethos-tekhne-new-generation-ai-researchers">
+    //         EELISA Spring School "Ethos + Tekhne: a new generation of AI
+    //         researchers"
+    //       </Link>{" "}
+    //       in Pisa, Italy.
+    //     </p>
+    //   ),
+    // },
   ];
 
   const publications = [
+    {
+      title: "SEKE: Specialised Experts for Keyword Extraction",
+      url: "https://aclanthology.org/2025.findings-emnlp.764/",
+      authors: [
+        { name: "Matej Martinc", bold: false },
+        { name: "Hanh Thi Hong Tran", bold: true },
+        { name: "Senja Pollak", bold: false },
+        { name: "Boshko Koloski", bold: false },
+      ],
+      venue:
+        "Findings of the Association for Computational Linguistics: EMNLP 2025",
+      description:
+        "We propose a novel supervised keyword extraction approach based on the mixture of experts (MoE) technique. MoE uses a DeBERTa as the backbone model and builds on the MoE framework, where experts attend to each token, by integrating it with a bidirectional Long short-term memory (BiLSTM) network, to allow successful extraction even on smaller corpora, where specialisation is harder due to lack of training data. The MoE framework also provides an insight into inner workings of individual experts, enhancing the explainability of the approach.",
+      image: "seke.png",
+    },
+    // {
+    //   title:
+    //     "Ar-Q-former: Historical Newspaper Article Separation based on Multimodal Transformer Structure",
+    //   url: "https://link.springer.com/chapter/10.1007/978-3-031-xxx",
+    //   authors: [
+    //     { name: "Wenjun Sun", bold: false },
+    //     { name: "Nancy Girdhar", bold: false },
+    //     { name: "Hanh Thi Hong Tran", bold: true },
+    //     { name: "Carlos-Emiliano González-Gallardo", bold: false },
+    //     { name: "Mickaël Coustaty,", bold: false },
+    //     { name: "Antoine Doucet", bold: false },
+        
+    //   ],
+    //   venue:
+    //     "International Conference on Document Analysis and Recognition (ICDAR 2024)",
+    //   description:
+    //     "We propose an article separation model using a multimodal transformer structure. This model processes the newspaper image along with the bounding boxes and text content of its text blocks, linking them based on a predefined rule to reconstruct the overall page structure. The text and image information of the connected text blocks are then fed into a cross-modal transformer, and the classifier determines whether the connections between the text blocks need to be removed or not. The text blocks that remain connected are recognized as forming an article. A mask method is used to allow the image to reflect the positional relationships of the text blocks.",
+    //   image: null,
+    // },
+    {
+      title:
+        "LlamATE: Automated terminology extraction using large-scale generative language models",
+      url: "https://univ-tours.hal.science/hal-05088938v1",
+      authors: [
+        { name: "Hanh Thi Hong Tran", bold: true },
+        { name: "Carlos-Emiliano González-Gallardo", bold: false },
+        { name: "Antoine Doucet", bold: false },
+        { name: "Senja Pollak", bold: false },
+      ],
+      venue:
+        "Terminology: International Journal of Theoretical and Applied Issues in Specialized Communication, 2025",
+      description:
+        "We present LlamATE, a framework to verify the impact of domain specificity on ATE when using in-context learning prompts in open-sourced LLM-based chat models, namely Llama-2-Chat. We evaluate how well the LLM-based chat models perform with different levels of domain-related information in the dominant language in NLP research from ACTER datasets, i.e., in-domain and cross-domain demonstrations with and without domain enunciation.", 
+      image: "llama.png",
+    },
     {
       title:
         "LIAS: Layout Information-Based Article Separation in Historical Newspapers",
@@ -292,58 +377,58 @@ export default function Home() {
       image:
         "Can cross-domain term extraction benefit from cross-lingual transfer and nested term labeling.webp",
     },
-    {
-      title:
-        "L3I++ at SemEval-2024 Task 8: Can Fine-tuned LLM Detect Multigenerator, Multidomain, and Multilingual Black-Box Machine-Generated Text?",
-      url: "https://aclanthology.org/2024.semeval-1.3.pdf",
-      authors: [
-        { name: "Hanh Thi Hong Tran", bold: true },
-        { name: "Tien Nam Nguyen", bold: false },
-        { name: "Antoine Doucet", bold: false },
-        { name: "Senja Pollak", bold: false },
-      ],
-      venue:
-        "Proceedings of the The 18th International Workshop on Semantic Evaluation (SemEval-2024)",
-      description:
-        "We propose a comparative study among three groups of methods to trigger the detection: (1) Using metric-based models; (2) Using a fine-tuned sequence-labeling language model (LM); and (3) Using a fine-tuned large-scale language model (LLM).",
-      image: "L3I task 8.webp",
-    },
-    {
-      title:
-        "L3I++ at SemEval-2023 Task 2: Prompting for Multilingual Complex NER",
-      url: "https://aclanthology.org/2023.semeval-1.112.pdf",
-      authors: [
-        { name: "Carlos-Emiliano González-Gallardo", bold: false },
-        { name: "Hanh Thi Hong Tran", bold: true },
-        { name: "Nancy Girdhar", bold: false },
-        { name: "Emanuela Boros", bold: false },
-        { name: "Jose G Moreno", bold: false },
-        { name: "Antoine Doucet", bold: false },
-      ],
-      venue:
-        "Proceedings of the The 17th International Workshop on Semantic Evaluation (SemEval-2023)",
-      description:
-        "We develop methods to detect semantic ambiguous and complex entities in short and low-context settings of Complex NER using three different prompt-based approaches.",
-      image: "L3I task 2.webp",
-    },
-    {
-      title:
-        "Ensembling Transformers for Cross-domain Automatic Term Extraction",
-      url: "https://link.springer.com/chapter/10.1007/978-3-031-21756-2_7",
-      authors: [
-        { name: "Hanh Thi Hong Tran", bold: true },
-        { name: "Matej Martinc", bold: false },
-        { name: "Andraz Pelicon", bold: false },
-        { name: "Antoine Doucet", bold: false },
-        { name: "Senja Pollak", bold: false },
-      ],
-      venue:
-        "International Conference on Asian Digital Libraries (ICADL, 2022)",
-      description:
-        "We propose a comparative study on the predictive power of Transformers at extracting single- and multi-word terms in a multilingual cross-domain setting with and without ensembling approaches.",
-      image:
-        "Ensembling Transformers for Cross-domain Automatic Term Extraction.webp",
-    },
+    // {
+    //   title:
+    //     "L3I++ at SemEval-2024 Task 8: Can Fine-tuned LLM Detect Multigenerator, Multidomain, and Multilingual Black-Box Machine-Generated Text?",
+    //   url: "https://aclanthology.org/2024.semeval-1.3.pdf",
+    //   authors: [
+    //     { name: "Hanh Thi Hong Tran", bold: true },
+    //     { name: "Tien Nam Nguyen", bold: false },
+    //     { name: "Antoine Doucet", bold: false },
+    //     { name: "Senja Pollak", bold: false },
+    //   ],
+    //   venue:
+    //     "Proceedings of the The 18th International Workshop on Semantic Evaluation (SemEval-2024)",
+    //   description:
+    //     "We propose a comparative study among three groups of methods to trigger the detection: (1) Using metric-based models; (2) Using a fine-tuned sequence-labeling language model (LM); and (3) Using a fine-tuned large-scale language model (LLM).",
+    //   image: "L3I task 8.webp",
+    // },
+    // {
+    //   title:
+    //     "L3I++ at SemEval-2023 Task 2: Prompting for Multilingual Complex NER",
+    //   url: "https://aclanthology.org/2023.semeval-1.112.pdf",
+    //   authors: [
+    //     { name: "Carlos-Emiliano González-Gallardo", bold: false },
+    //     { name: "Hanh Thi Hong Tran", bold: true },
+    //     { name: "Nancy Girdhar", bold: false },
+    //     { name: "Emanuela Boros", bold: false },
+    //     { name: "Jose G Moreno", bold: false },
+    //     { name: "Antoine Doucet", bold: false },
+    //   ],
+    //   venue:
+    //     "Proceedings of the The 17th International Workshop on Semantic Evaluation (SemEval-2023)",
+    //   description:
+    //     "We develop methods to detect semantic ambiguous and complex entities in short and low-context settings of Complex NER using three different prompt-based approaches.",
+    //   image: "L3I task 2.webp",
+    // },
+    // {
+    //   title:
+    //     "Ensembling Transformers for Cross-domain Automatic Term Extraction",
+    //   url: "https://link.springer.com/chapter/10.1007/978-3-031-21756-2_7",
+    //   authors: [
+    //     { name: "Hanh Thi Hong Tran", bold: true },
+    //     { name: "Matej Martinc", bold: false },
+    //     { name: "Andraz Pelicon", bold: false },
+    //     { name: "Antoine Doucet", bold: false },
+    //     { name: "Senja Pollak", bold: false },
+    //   ],
+    //   venue:
+    //     "International Conference on Asian Digital Libraries (ICADL, 2022)",
+    //   description:
+    //     "We propose a comparative study on the predictive power of Transformers at extracting single- and multi-word terms in a multilingual cross-domain setting with and without ensembling approaches.",
+    //   image:
+    //     "Ensembling Transformers for Cross-domain Automatic Term Extraction.webp",
+    // },
     {
       title:
         "Can Cross-domain Term Extraction Benefit from Cross-lingual Transfer?",
