@@ -7,7 +7,7 @@
   },
   "files": {
     "ignoreUnknown": true,
-    "includes": ["!node_modules", "!.next", "!dist", "!build"]
+    "includes": ["**", "!node_modules", "!.next", "!dist", "!build", "!**/*.astro"]
   },
   "formatter": {
     "enabled": true,
@@ -23,10 +23,7 @@
         "noArrayIndexKey": "off"
       }
     },
-    "domains": {
-      "next": "recommended",
-      "react": "recommended"
-    }
+    "domains": {}
   },
   "assist": {
     "actions": {
@@ -35,9 +32,5 @@
       }
     }
   },
-  "extends": [
-    "ultracite/biome/core",
-    "ultracite/biome/react",
-    "ultracite/biome/next"
-  ]
+  "extends": ["ultracite/biome/core"]
 }

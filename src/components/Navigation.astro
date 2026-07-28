@@ -1,0 +1,48 @@
+---
+import { cn } from "@/lib/utils";
+
+const pathname = Astro.url.pathname;
+const navItems = [
+  { href: "/", label: "Home" },
+  { href: "/education", label: "Education" },
+  { href: "/side-projects", label: "Side projects" },
+  { href: "/resume", label: "Resume" },
+];
+---
+
+<nav class="fixed top-4 right-4 left-4 z-50 mx-auto max-w-6xl">
+  <div class="rounded-lg border border-border/50 bg-background/80 shadow-lg backdrop-blur-md">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex h-14 items-center justify-center">
+        <div class="flex items-center gap-1 sm:gap-2">
+          {
+            navItems.map((item) => {
+              const isActive =
+                item.href === "/"
+                  ? pathname === "/" || pathname === "/index.html"
+                  : pathname.startsWith(item.href);
+
+              return (
+                <a
+                  class={cn(
+                    "relative cursor-pointer rounded-md px-3 py-2 font-medium text-sm transition-all duration-200",
+                    "hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+                    isActive
+                      ? "text-primary"
+                      : "text-foreground/70 hover:text-foreground"
+                  )}
+                  href={item.href}
+                >
+                  {item.label}
+                  {isActive && (
+                    <span class="absolute bottom-0 left-1/2 h-0.5 w-4 -translate-x-1/2 rounded-full bg-primary" />
+                  )}
+                </a>
+              );
+            })
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
