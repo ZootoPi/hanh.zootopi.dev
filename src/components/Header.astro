@@ -1,0 +1,38 @@
+---
+interface Props {
+  current?: string;
+}
+
+const { current = "" } = Astro.props;
+
+const links = [
+  { id: "work", href: "/", label: "Work" },
+  { id: "experience", href: "/experience", label: "Experience" },
+  { id: "research", href: "/research", label: "Research" },
+  { id: "teaching", href: "/teaching", label: "Teaching" },
+];
+---
+
+<header class="site-header">
+  <a href="/" class="site-header__brand">Hanh Tran</a>
+  <nav aria-label="Main" class="site-nav">
+    {
+      links.map((link) => (
+        <a
+          href={link.href}
+          class="site-nav__link"
+          aria-current={current === link.id ? "page" : undefined}
+        >
+          {link.label}
+        </a>
+      ))
+    }
+    <a
+      href="/resume"
+      class="site-nav__resume"
+      aria-current={current === "resume" ? "page" : undefined}
+    >
+      Résumé
+    </a>
+  </nav>
+</header>

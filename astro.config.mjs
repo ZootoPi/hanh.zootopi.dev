@@ -1,9 +1,10 @@
-import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
   output: "static",
-  vite: {
-    plugins: [tailwindcss()],
+  // Pages removed in the redesign keep working for old links.
+  redirects: {
+    "/education": "/resume",
+    "/side-projects": "/",
   },
 });
