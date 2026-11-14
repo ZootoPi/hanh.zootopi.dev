@@ -1,531 +1,187 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Sparkles from "../components/icons/Sparkles.astro";
-
-const publications = [
-  {
-    title: "SEKE: Specialised Experts for Keyword Extraction",
-    url: "https://aclanthology.org/2025.findings-emnlp.764/",
-    authors: [
-      { name: "Matej Martinc", bold: false },
-      { name: "Hanh Thi Hong Tran", bold: true },
-      { name: "Senja Pollak", bold: false },
-      { name: "Boshko Koloski", bold: false },
-    ],
-    venue:
-      "Findings of the Association for Computational Linguistics: EMNLP 2025",
-    description:
-      "We propose a novel supervised keyword extraction approach based on the mixture of experts (MoE) technique. MoE uses a DeBERTa as the backbone model and builds on the MoE framework, where experts attend to each token, by integrating it with a bidirectional Long short-term memory (BiLSTM) network, to allow successful extraction even on smaller corpora, where specialisation is harder due to lack of training data. The MoE framework also provides an insight into inner workings of individual experts, enhancing the explainability of the approach.",
-    image: "seke.png",
-  },
-  {
-    title:
-      "LlamATE: Automated terminology extraction using large-scale generative language models",
-    url: "https://univ-tours.hal.science/hal-05088938v1",
-    authors: [
-      { name: "Hanh Thi Hong Tran", bold: true },
-      { name: "Carlos-Emiliano González-Gallardo", bold: false },
-      { name: "Antoine Doucet", bold: false },
-      { name: "Senja Pollak", bold: false },
-    ],
-    venue:
-      "Terminology: International Journal of Theoretical and Applied Issues in Specialized Communication, 2025",
-    description:
-      "We present LlamATE, a framework to verify the impact of domain specificity on ATE when using in-context learning prompts in open-sourced LLM-based chat models, namely Llama-2-Chat. We evaluate how well the LLM-based chat models perform with different levels of domain-related information in the dominant language in NLP research from ACTER datasets, i.e., in-domain and cross-domain demonstrations with and without domain enunciation.",
-    image: "llama.png",
-  },
-  {
-    title:
-      "LIAS: Layout Information-Based Article Separation in Historical Newspapers",
-    url: "https://link.springer.com/chapter/10.1007/978-3-031-72437-4_15",
-    authors: [
-      { name: "Wenjun Sun", bold: false },
-      { name: "Hanh Thi Hong Tran", bold: true },
-      { name: "Carlos-Emiliano González-Gallardo", bold: false },
-      { name: "Mickaël Coustaty", bold: false },
-      { name: "Antoine Doucet", bold: false },
-    ],
-    venue:
-      "International Conference on Theory and Practice of Digital Libraries (TPDL 2024)",
-    description:
-      "We propose LIAS, a method based on layout information, and conduct experiments on historical newspapers. The method initially identifies the separator lines of the newspaper, analyzes the layout information to reconstruct the in- formation flow of the document, performs segmentation based on the semantic relationship of each text block in the information flow, and ultimately achieves article separation.",
-    image: "lias.webp",
-  },
-  {
-    title: "LIT: Label-Informed Transformers on Token-Based Classification",
-    url: "https://link.springer.com/chapter/10.1007/978-3-031-72437-4_16",
-    authors: [
-      { name: "Wenjun Sun", bold: false },
-      { name: "Hanh Thi Hong Tran", bold: true },
-      { name: "Carlos-Emiliano González-Gallardo", bold: false },
-      { name: "Mickaël Coustaty", bold: false },
-      { name: "Antoine Doucet", bold: false },
-    ],
-    venue:
-      "International Conference on Theory and Practice of Digital Libraries (TPDL 2024)",
-    description:
-      "We propose LIT, an end-to-end pipeline architecture that integrates the transformer's encoder-decoder mechanism with an additional label semantic to token classification tasks.",
-    image: "lit.webp",
-  },
-  {
-    title:
-      "Leveraging Open Large Language Models for Historical Named Entity Recognition",
-    url: "https://link.springer.com/chapter/10.1007/978-3-031-72437-4_22",
-    authors: [
-      { name: "Carlos-Emiliano González-Gallardo", bold: false },
-      { name: "Hanh Thi Hong Tran", bold: true },
-      { name: "Ahmed Hamdi", bold: false },
-      { name: "Antoine Doucet", bold: false },
-    ],
-    venue:
-      "International Conference on Theory and Practice of Digital Libraries (TPDL 2024)",
-    badge: "Best Paper Awards",
-    description:
-      "We develop methods to detect semantic ambiguous and complex entities in short and low-context settings of Complex NER using three different prompt-based approaches.",
-    image:
-      "Leveraging Open Large Language Models for Historical Named Entity Recognition.webp",
-  },
-  {
-    title: "Is Prompting What Term Extraction Needs?",
-    url: "https://link.springer.com/chapter/10.1007/978-3-031-70563-2_2",
-    authors: [
-      { name: "Hanh Thi Hong Tran", bold: true },
-      { name: "Carlos-Emiliano González-Gallardo", bold: false },
-      { name: "Julien Delaunay", bold: false },
-      { name: "Antoine Doucet", bold: false },
-      { name: "Senja Pollak", bold: false },
-    ],
-    venue: "International Conference on Text, Speech, and Dialogue (TSD 2024)",
-    description:
-      "We evaluate the applicability of open and closed-sourced LLMs on the ATE task compared to two benchmarks where we consider ATE as sequence-labeling (iobATE) and seq2seq (templATE) tasks.",
-    image: "Is Prompting What Term Extraction Needs.webp",
-  },
-  {
-    title:
-      "Global-SEG: Text Semantic Segmentation Based on Global Semantic Pair Relations",
-    url: "https://link.springer.com/chapter/10.1007/978-3-031-70546-5_15",
-    authors: [
-      { name: "Wenjun Sun", bold: false },
-      { name: "Hanh Thi Hong Tran", bold: true },
-      { name: "Carlos-Emiliano González-Gallardo", bold: false },
-      { name: "Mickaël Coustaty", bold: false },
-      { name: "Antoine Doucet", bold: false },
-    ],
-    venue:
-      "International Conference on Document Analysis and Recognition (ICDAR 2024)",
-    description:
-      "We propose Global-SEG, utilizing global semantic pair relations from both token- and sentence-level language models for text semantic segmentation.",
-    image: "Global-SEG.webp",
-  },
-  {
-    title:
-      "Can cross-domain term extraction benefit from cross-lingual transfer and nested term labeling?",
-    url: "https://link.springer.com/article/10.1007/s10994-023-06506-7",
-    authors: [
-      { name: "Hanh Thi Hong Tran", bold: true },
-      { name: "Matej Martinc", bold: false },
-      { name: "Andraz Repar", bold: false },
-      { name: "Nikola Ljubešić", bold: false },
-      { name: "Antoine Doucet", bold: false },
-      { name: "& Senja Pollak", bold: false },
-    ],
-    venue: "Machine Learning, 2024",
-    description:
-      "We propose a novel NOBI annotation regime and evaluate the abilities of cross-lingual and multilingual versus monolingual learning in the cross-domain to automatic term extraction.",
-    image:
-      "Can cross-domain term extraction benefit from cross-lingual transfer and nested term labeling.webp",
-  },
-  {
-    title:
-      "Can Cross-domain Term Extraction Benefit from Cross-lingual Transfer?",
-    url: "https://link.springer.com/chapter/10.1007/978-3-031-18840-4_26",
-    authors: [
-      { name: "Hanh Thi Hong Tran", bold: true },
-      { name: "Matej Martinc", bold: false },
-      { name: "Antoine Doucet", bold: false },
-      { name: "Senja Pollak", bold: false },
-    ],
-    venue: "International Conference on Discovery Science (DS, 2022)",
-    description:
-      "We evaluate the abilities of cross-lingual and multilingual versus monolingual learning in the cross-domain to automatic term extraction.",
-    image:
-      "Can Cross-domain Term Extraction Benefit from Cross-lingual Transfer.webp",
-  },
-  {
-    title:
-      "Named Entity Recognition Architecture Combining Contextual and Global Features",
-    url: "https://link.springer.com/chapter/10.1007/978-3-030-91669-5_21",
-    authors: [
-      { name: "Hanh Thi Hong Tran", bold: true },
-      { name: "Antoine Doucet", bold: false },
-      { name: "Nicolas Sidere", bold: false },
-      { name: "Jose G Moreno", bold: false },
-      { name: "Senja Pollak", bold: false },
-    ],
-    venue: "International Conference on Asian Digital Libraries (ICADL, 2021)",
-    description:
-      "We propose the combination of contextual features from XLNet and global features from the Graph Convolution Network (GCN) to enhance NER performance.",
-    image:
-      "Named Entity Recognition Architecture Combining Contextual and Global Features.webp",
-  },
-];
 ---
 
-<Layout>
-  <div class="container mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
-    <section class="mb-16">
-      <div class="flex flex-col gap-6 sm:flex-row sm:items-start">
-        <div class="shrink-0">
-          <img
-            alt="Hanh Tran"
-            class="rounded-md"
-            height={200}
-            src="/images/Hanh.jpg"
-            width={200}
-          />
-        </div>
-        <div class="flex-1 space-y-4 text-lg leading-relaxed">
-          <h1 class="flex items-center gap-2 font-bold text-4xl text-foreground tracking-tight">
-            Hello, I'm Hanh Tran
-            <Sparkles class="h-8 w-8 text-yellow-400" />
-          </h1>
-          <p class="text-foreground/90">
-            I am an NLP Engineer at{" "}
-            <strong class="text-foreground">Arkhn</strong>.
-          </p>
-          <p class="text-foreground/90">
-            I got my Ph.D. diploma in the Cotuelle program between{" "}
-            <strong class="text-foreground">La Rochelle University</strong>,
-            France, and{" "}
-            <strong class="text-foreground">Jožef Stefan Institute</strong>,
-            Slovenia supervised by Prof. Antoine Doucet and Assist. Prof. Senja
-            Pollak. Previously, I worked as a Data Scientist at{" "}
-            <strong class="text-foreground">Samsung SDSV</strong>.
-          </p>
-          <p class="text-foreground/90">
-            My research interests are natural language processing, information
-            extraction, low-resourced languages, generative AI, and large-scale
-            language models.
-          </p>
-        </div>
-      </div>
-    </section>
+<Layout
+  title="Hanh Tran – Applied AI Engineer"
+  description="Hanh Tran, Applied AI Engineer and founder of Tihado. Agentic AI products from hackathon prototype to hospital production."
+  current="work"
+  footer="cta"
+>
+<main style="max-width: 960px; margin: 0 auto; padding: 0 32px; box-sizing: border-box">
 
-    <section class="mb-16">
-      <h2 class="mb-8 font-bold text-3xl text-foreground tracking-tight">
-        NEWS
-      </h2>
-      <ul class="space-y-6">
-        <li class="flex flex-col gap-2 sm:flex-row">
-          <span class="min-w-[140px] font-semibold text-foreground sm:min-w-[180px]">
-            December 2025:
-          </span>
-          <span class="text-muted-foreground italic leading-relaxed">
-            <p>
-              <strong>Vidzly</strong> won 1st Prize for Creativity at{" "}
-              <a
-                class="text-blue-500 hover:underline"
-                href="https://huggingface.co/spaces/MCP-1st-Birthday/vidzly"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                Agents & MCP Hackathon 2025
-              </a>
-              .
-            </p>
-          </span>
-        </li>
-        <li class="flex flex-col gap-2 sm:flex-row">
-          <span class="min-w-[140px] font-semibold text-foreground sm:min-w-[180px]">
-            December 2025:
-          </span>
-          <span class="text-muted-foreground italic leading-relaxed">
-            <p>
-              <strong>EatAble</strong> won 3rd Prize at{" "}
-              <a
-                class="text-blue-500 hover:underline"
-                href="https://github.com/tihado/AMD_Robot_Hackathon"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                AMD Robotics Hackathon 2025
-              </a>
-              .
-            </p>
-          </span>
-        </li>
-        <li class="flex flex-col gap-2 sm:flex-row">
-          <span class="min-w-[140px] font-semibold text-foreground sm:min-w-[180px]">
-            September 2024:
-          </span>
-          <span class="text-muted-foreground italic leading-relaxed">
-            <p>
-              I joined as an NLP Engineer at{" "}
-              <a
-                class="text-blue-500 hover:underline"
-                href="https://www.arkhn.com/"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                Arkhn
-              </a>
-              , Paris, France.
-            </p>
-          </span>
-        </li>
-        <li class="flex flex-col gap-2 sm:flex-row">
-          <span class="min-w-[140px] font-semibold text-foreground sm:min-w-[180px]">
-            September 2024:
-          </span>
-          <span class="text-muted-foreground italic leading-relaxed">
-            <p>
-              One of my accepted papers received "Best Paper Award" at the{" "}
-              <a
-                class="text-blue-500 hover:underline"
-                href="https://tpdl2024.nuk.si/"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                28th International Conference on Theory and Practice of Digital
-                Libraries
-              </a>{" "}
-              (TPDL 2024).
-            </p>
-          </span>
-        </li>
-        <li class="flex flex-col gap-2 sm:flex-row">
-          <span class="min-w-[140px] font-semibold text-foreground sm:min-w-[180px]">
-            August 2024:
-          </span>
-          <span class="text-muted-foreground italic leading-relaxed">
-            <p>
-              I taught the{" "}
-              <a
-                class="text-blue-500 hover:underline"
-                href="https://course.vietai.org/courses/GENERATIVE-AI-FOR-EVERYONE-2024"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                Generative AI for Everyone
-              </a>{" "}
-              course at{" "}
-              <a
-                class="text-blue-500 hover:underline"
-                href="https://course.vietai.org/"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                VietAI
-              </a>
-              .
-            </p>
-          </span>
-        </li>
-        <li class="flex flex-col gap-2 sm:flex-row">
-          <span class="min-w-[140px] font-semibold text-foreground sm:min-w-[180px]">
-            July 2024:
-          </span>
-          <span class="text-muted-foreground italic leading-relaxed">
-            <p>
-              I gave seminars about "Terminology in the era of LLMs" at the
-              University of Coimbra, Portugal, and the University of Malta,
-              Malta.
-            </p>
-          </span>
-        </li>
-        <li class="flex flex-col gap-2 sm:flex-row">
-          <span class="min-w-[140px] font-semibold text-foreground sm:min-w-[180px]">
-            February 2024:
-          </span>
-          <span class="text-muted-foreground italic leading-relaxed">
-            <p>
-              I became a Program Committee member for the{" "}
-              <a
-                class="text-blue-500 hover:underline"
-                href="https://sites.google.com/view/textgraphs2024"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                17th Workshop on Graph-Based Natural Language Processing
-                (TextGraphs-17)
-              </a>{" "}
-              co-located with ACL-2024 in Bangkok, Thailand.
-            </p>
-          </span>
-        </li>
-        <li class="flex flex-col gap-2 sm:flex-row">
-          <span class="min-w-[140px] font-semibold text-foreground sm:min-w-[180px]">
-            December 2023:
-          </span>
-          <span class="text-muted-foreground italic leading-relaxed">
-            <p>
-              I became Student Session Chair at{" "}
-              <a
-                class="text-blue-500 hover:underline"
-                href="https://2024.esslli.eu/"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                35th European Summer School in Logic, Language, and Information
-              </a>{" "}
-              (ESSLLI 2024) in Leuven, Belgium.
-            </p>
-          </span>
-        </li>
-        <li class="flex flex-col gap-2 sm:flex-row">
-          <span class="min-w-[140px] font-semibold text-foreground sm:min-w-[180px]">
-            October 2023:
-          </span>
-          <span class="text-muted-foreground italic leading-relaxed">
-            <p>
-              I taught the{" "}
-              <a
-                class="text-blue-500 hover:underline"
-                href="https://course.vietai.org/courses/build-applications-with-openai-api"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                Build Applications with OpenAI API
-              </a>{" "}
-              course at{" "}
-              <a
-                class="text-blue-500 hover:underline"
-                href="https://course.vietai.org/"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                VietAI
-              </a>
-              .
-            </p>
-          </span>
-        </li>
-        <li class="flex flex-col gap-2 sm:flex-row">
-          <span class="min-w-[140px] font-semibold text-foreground sm:min-w-[180px]">
-            September 2023:
-          </span>
-          <span class="text-muted-foreground italic leading-relaxed">
-            <p>
-              I became a Program Committee member for{" "}
-              <a
-                class="text-blue-500 hover:underline"
-                href="https://contents2023.kulak.kuleuven.be/"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                Computational Terminology in NLP & Translation Studies (ConTeNTS)
-              </a>{" "}
-              at{" "}
-              <a
-                class="text-blue-500 hover:underline"
-                href="https://ranlp.org/ranlp2023/"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                RANLP 2023
-              </a>
-              .
-            </p>
-          </span>
-        </li>
-        <li class="flex flex-col gap-2 sm:flex-row">
-          <span class="min-w-[140px] font-semibold text-foreground sm:min-w-[180px]">
-            May 2023:
-          </span>
-          <span class="text-muted-foreground italic leading-relaxed">
-            <p>
-              I taught the{" "}
-              <a
-                class="text-blue-500 hover:underline"
-                href="https://course.vietai.org/courses/chatgpt-bard-for-everyone"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                ChatGPT/Bard for Everyone
-              </a>{" "}
-              course at{" "}
-              <a
-                class="text-blue-500 hover:underline"
-                href="https://course.vietai.org/"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                VietAI
-              </a>
-              .
-            </p>
-          </span>
-        </li>
-      </ul>
-    </section>
+<section style="display: flex; flex-wrap: wrap; align-items: center; gap: 40px 56px; padding: 40px 0 56px">
+<div style="flex: 999 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<p style="margin: 0; font-family: var(--font-mono); font-size: 14px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted)">Applied AI Engineer · Founder · Paris</p>
+<h1 style="margin: 0; font-size: clamp(2.3rem, 4.6vw, 3.6rem); line-height: 1.06; letter-spacing: -0.035em; font-weight: 600; text-wrap: balance">I ship agentic AI products, <span style="color: var(--accent)">from hackathon prototype to hospital production.</span></h1>
+<p style="margin: 0; font-size: 20px; line-height: 1.5; color: var(--body); max-width: 30em; text-wrap: pretty">Founder of Tihado and NLP Research Engineer at Arkhn. I build agents, MCP tools and AI coding workflows, and I teach others to do the same.</p>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px">
+<a href="#work" style="text-decoration: none; background: var(--ink); color: var(--on-ink); font-weight: 500; font-size: 16px; border-radius: 6px; padding: 12px 20px">See selected work</a>
+<a href="mailto:h@tihado.com" style="text-decoration: none; font-weight: 500; font-size: 16px; border: 1px solid var(--line-strong); border-radius: 6px; padding: 11px 20px">h@tihado.com</a>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 4px 24px; font-size: 16px">
+<a href="https://github.com/honghanhh" style="color: var(--muted); padding: 10px 0">GitHub ↗</a>
+<a href="https://scholar.google.com/citations?user=OGb4sloAAAAJ" style="color: var(--muted); padding: 10px 0">Google Scholar ↗</a>
+<a href="https://www.linkedin.com/in/hanh-thi-hong-tran-0b886212a/" style="color: var(--muted); padding: 10px 0">LinkedIn ↗</a>
+<a href="https://tihado.com" style="color: var(--muted); padding: 10px 0">tihado.com ↗</a>
+</div>
+</div>
+<div style="flex: 1 1 280px; max-width: 340px; min-width: 0">
+<img src="/images/hanh-portrait.jpg" width="460" height="575" alt="Hanh Tran at a harbour, smiling, wearing glasses and a bucket hat" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 8px">
+</div>
+</section>
 
-    <section class="mb-16">
-      <h2 class="mb-4 font-bold text-3xl text-foreground tracking-tight">
-        PUBLICATIONS
-      </h2>
-      <p class="mb-8 text-muted-foreground leading-relaxed">
-        For a complete list of publications, please refer to my{" "}
-        <a
-          class="cursor-pointer text-primary transition-colors duration-200 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-          href="https://scholar.google.com"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          Google Scholar page
-        </a>
-        .
-      </p>
-      <div class="space-y-6">
-        {
-          publications.map((pub) => (
-            <article
-              class="group flex flex-col gap-4 rounded-lg border border-border/50 bg-card p-4 transition-all duration-200 hover:border-primary/50 hover:shadow-lg sm:flex-row sm:p-6"
-            >
-              {pub.image && (
-                <div class="shrink-0 overflow-hidden rounded-lg sm:w-48">
-                  <img
-                    alt={pub.title}
-                    class="h-auto w-full object-contain transition-transform duration-200 group-hover:scale-105"
-                    height={200}
-                    src={`/images/${pub.image}`}
-                    width={200}
-                  />
-                </div>
-              )}
-              <div class="flex-1 space-y-2">
-                <a href={pub.url} rel="noopener noreferrer" target="_blank">
-                  <h3 class="font-semibold text-xl leading-tight">
-                    <strong class="text-foreground">{pub.title}</strong>
-                  </h3>
-                </a>
-                <p class="text-muted-foreground">
-                  {
-                    pub.authors.map((author, i) => (
-                      <span>
-                        {author.bold ? (
-                          <strong class="text-foreground">{author.name}</strong>
-                        ) : (
-                          author.name
-                        )}
-                        {i < pub.authors.length - 1 ? ", " : ""}
-                      </span>
-                    ))
-                  }
-                </p>
-                <p class="text-muted-foreground italic">{pub.venue}</p>
-                {pub.badge && (
-                  <p class="inline-block rounded-md bg-primary/10 px-3 py-1 font-semibold text-primary text-sm">
-                    ({pub.badge})
-                  </p>
-                )}
-                <p class="mt-2 text-muted-foreground italic">
-                  {pub.description}
-                </p>
-              </div>
-            </article>
-          ))
-        }
-      </div>
-    </section>
-  </div>
+<section aria-label="Key numbers" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(190px, 100%), 1fr)); gap: 28px 32px; padding: 32px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line)">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="font-size: 40px; line-height: 1; font-weight: 600; letter-spacing: -0.03em">5 awards</div>
+<div style="font-size: 16px; line-height: 1.4; color: var(--muted)">at AI hackathons in 8 months, 3 first places</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="font-size: 40px; line-height: 1; font-weight: 600; letter-spacing: -0.03em">1,200+</div>
+<div style="font-size: 16px; line-height: 1.4; color: var(--muted)">students taught across 10 VietAI cohorts</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="font-size: 40px; line-height: 1; font-weight: 600; letter-spacing: -0.03em">20+ papers</div>
+<div style="font-size: 16px; line-height: 1.4; color: var(--muted)">peer-reviewed, with a Best Paper Award</div>
+</div>
+</section>
+
+<section id="work" style="padding: 56px 0 0; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 24px">
+<h2 style="margin: 0; font-size: 30px; line-height: 1.15; font-weight: 600; letter-spacing: -0.025em">Selected work</h2>
+<p style="margin: 0; font-size: 16px; color: var(--muted)">Built at Tihado with a team of four, idea to demo in days</p>
+</div>
+<div style="display: flex; flex-direction: column; border-top: 1px solid var(--ink)">
+
+<article style="display: flex; flex-wrap: wrap; gap: 6px 24px; padding: 20px 0; border-bottom: 1px solid var(--line)">
+<div style="flex: 0 0 110px; font-family: var(--font-mono); font-size: 14px; font-weight: 500; color: var(--accent); padding-top: 6px">1st place</div>
+<div style="flex: 999 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+<h3 style="margin: 0; font-size: 23px; line-height: 1.3; font-weight: 600; letter-spacing: -0.02em"><a href="https://tihado.com/blogs/pozify-build-small-backyard-ai-track-win/" style="text-decoration: none">Pozify ↗</a></h3>
+<p style="margin: 0; color: var(--body); text-wrap: pretty">Rep-level workout form review from short videos, run by a 182K-parameter model. $4,000 prize.</p>
+<p style="margin: 0; font-size: 15px; color: var(--muted)">Backyard AI track · Gradio Build Small Hackathon (946 apps)</p>
+</div>
+<div style="flex: 0 0 auto; font-family: var(--font-mono); font-size: 14px; color: var(--muted); padding-top: 6px">Jul 2026</div>
+</article>
+
+<article style="display: flex; flex-wrap: wrap; gap: 6px 24px; padding: 20px 0; border-bottom: 1px solid var(--line)">
+<div style="flex: 0 0 110px; font-family: var(--font-mono); font-size: 14px; font-weight: 500; color: var(--accent); padding-top: 6px">1st place</div>
+<div style="flex: 999 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+<h3 style="margin: 0; font-size: 23px; line-height: 1.3; font-weight: 600; letter-spacing: -0.02em"><a href="https://tihado.com/projects/posey/" style="text-decoration: none">Posey ↗</a></h3>
+<p style="margin: 0; color: var(--body); text-wrap: pretty">iOS coach with real-time pose tracking at 30 fps and Gemini Live voice feedback under 200 ms.</p>
+<p style="margin: 0; font-size: 15px; color: var(--muted)">Startup Track · WELTARE Spring Sprint 1.1.4</p>
+</div>
+<div style="flex: 0 0 auto; font-family: var(--font-mono); font-size: 14px; color: var(--muted); padding-top: 6px">Apr 2026</div>
+</article>
+
+<article style="display: flex; flex-wrap: wrap; gap: 6px 24px; padding: 20px 0; border-bottom: 1px solid var(--line)">
+<div style="flex: 0 0 110px; font-family: var(--font-mono); font-size: 14px; font-weight: 500; color: var(--accent); padding-top: 6px">1st place</div>
+<div style="flex: 999 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+<h3 style="margin: 0; font-size: 23px; line-height: 1.3; font-weight: 600; letter-spacing: -0.02em"><a href="https://tihado.com/projects/vidzly/" style="text-decoration: none">Vidzly ↗</a></h3>
+<p style="margin: 0; color: var(--body); text-wrap: pretty">Raw clips to short-form video through six MCP tools on a Gradio server, with Gemini and ElevenLabs.</p>
+<p style="margin: 0; font-size: 15px; color: var(--muted)">Creativity · MCP 1st Birthday Hackathon (Agents &amp; MCP)</p>
+</div>
+<div style="flex: 0 0 auto; font-family: var(--font-mono); font-size: 14px; color: var(--muted); padding-top: 6px">Dec 2025</div>
+</article>
+
+<article style="display: flex; flex-wrap: wrap; gap: 6px 24px; padding: 20px 0; border-bottom: 1px solid var(--line)">
+<div style="flex: 0 0 110px; font-family: var(--font-mono); font-size: 14px; font-weight: 500; color: var(--muted); padding-top: 6px">3rd place</div>
+<div style="flex: 999 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+<h3 style="margin: 0; font-size: 23px; line-height: 1.3; font-weight: 600; letter-spacing: -0.02em"><a href="https://tihado.com/projects/lumen/" style="text-decoration: none">Lumen ↗</a></h3>
+<p style="margin: 0; color: var(--body); text-wrap: pretty">Voice-first lesson authoring for teachers, orchestrating OpenAI, SLNG, Tavily and fal APIs.</p>
+<p style="margin: 0; font-size: 15px; color: var(--muted)">SLNG award · &#123;Tech: Europe&#125; Paris AI Hackathon</p>
+</div>
+<div style="flex: 0 0 auto; font-family: var(--font-mono); font-size: 14px; color: var(--muted); padding-top: 6px">May 2026</div>
+</article>
+
+<article style="display: flex; flex-wrap: wrap; gap: 6px 24px; padding: 20px 0; border-bottom: 1px solid var(--line)">
+<div style="flex: 0 0 110px; font-family: var(--font-mono); font-size: 14px; font-weight: 500; color: var(--muted); padding-top: 6px">3rd place</div>
+<div style="flex: 999 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+<h3 style="margin: 0; font-size: 23px; line-height: 1.3; font-weight: 600; letter-spacing: -0.02em"><a href="https://tihado.com/projects/eatable/" style="text-decoration: none">EatAble ↗</a></h3>
+<p style="margin: 0; color: var(--body); text-wrap: pretty">Voice-controlled feeding robot for people with upper-limb disabilities: fine-tuned SmolVLA and GPT-4o-mini.</p>
+<p style="margin: 0; font-size: 15px; color: var(--muted)">AMD Open Robotics Hackathon</p>
+</div>
+<div style="flex: 0 0 auto; font-family: var(--font-mono); font-size: 14px; color: var(--muted); padding-top: 6px">Dec 2025</div>
+</article>
+
+</div>
+</section>
+
+<section style="padding: 64px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr)); gap: 48px 56px">
+
+<div style="display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 30px; line-height: 1.15; font-weight: 600; letter-spacing: -0.025em">Experience</h2>
+<div style="display: flex; flex-direction: column; border-top: 1px solid var(--ink)">
+<div style="display: flex; flex-direction: column; gap: 2px; padding: 14px 0; border-bottom: 1px solid var(--line)">
+<div style="font-weight: 600">NLP Research Engineer · Arkhn</div>
+<div style="font-size: 15px; color: var(--muted)">2024 – Present · agentic assistant and document AI for French hospitals</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px; padding: 14px 0; border-bottom: 1px solid var(--line)">
+<div style="font-weight: 600">Founder · Tihado</div>
+<div style="font-size: 15px; color: var(--muted)">2024 – Present · AI product studio, five award-winning prototypes</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px; padding: 14px 0; border-bottom: 1px solid var(--line)">
+<div style="font-weight: 600">PhD Researcher · La Rochelle &amp; Jožef Stefan Institute</div>
+<div style="font-size: 15px; color: var(--muted)">2021 – 2024 · terminology extraction with LLMs</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px; padding: 14px 0; border-bottom: 1px solid var(--line)">
+<div style="font-weight: 600">Data Scientist · 3T JSC, Samsung SDS</div>
+<div style="font-size: 15px; color: var(--muted)">2019 – 2021 · credit scoring, call analytics, legal NLP</div>
+</div>
+</div>
+<a href="/experience" style="font-weight: 500; padding: 10px 0; align-self: flex-start">Full experience →</a>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 30px; line-height: 1.15; font-weight: 600; letter-spacing: -0.025em">Research</h2>
+<div style="display: flex; flex-direction: column; border-top: 1px solid var(--ink)">
+<div style="display: flex; flex-direction: column; gap: 2px; padding: 14px 0; border-bottom: 1px solid var(--line)">
+<a href="https://aclanthology.org/2025.findings-emnlp.764/" style="font-weight: 600; text-decoration: none">SEKE: Specialised Experts for Keyword Extraction</a>
+<div style="font-size: 15px; color: var(--muted)">2025 · EMNLP Findings</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px; padding: 14px 0; border-bottom: 1px solid var(--line)">
+<a href="https://univ-tours.hal.science/hal-05088938v1" style="font-weight: 600; text-decoration: none">LlamATE: Automated Terminology Extraction with Generative LLMs</a>
+<div style="font-size: 15px; color: var(--muted)">2025 · Terminology (journal)</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px; padding: 14px 0; border-bottom: 1px solid var(--line)">
+<a href="https://link.springer.com/chapter/10.1007/978-3-031-72437-4_22" style="font-weight: 600; text-decoration: none">Open LLMs for Historical Named Entity Recognition</a>
+<div style="font-size: 15px; color: var(--muted)">2024 · TPDL · <span style="color: var(--accent); font-weight: 500">Best Paper Award</span></div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px; padding: 14px 0; border-bottom: 1px solid var(--line)">
+<a href="https://link.springer.com/article/10.1007/s10994-023-06506-7" style="font-weight: 600; text-decoration: none">Cross-domain Term Extraction and Cross-lingual Transfer</a>
+<div style="font-size: 15px; color: var(--muted)">2024 · Machine Learning (journal)</div>
+</div>
+</div>
+<a href="/research" style="font-weight: 500; padding: 10px 0; align-self: flex-start">All publications →</a>
+</div>
+
+</section>
+
+<section id="latest" style="padding: 64px 0 0; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 30px; line-height: 1.15; font-weight: 600; letter-spacing: -0.025em">Latest</h2>
+<div style="display: flex; flex-direction: column; border-top: 1px solid var(--ink)">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 24px; padding: 14px 0; border-bottom: 1px solid var(--line)">
+<div style="flex: 0 0 110px; font-family: var(--font-mono); font-size: 14px; color: var(--muted)">Jul 2026</div>
+<div style="flex: 999 1 320px; min-width: 0; text-wrap: pretty"><strong style="font-weight: 600">Pozify</strong> won 1st place in the Backyard AI track at the <a href="https://tihado.com/blogs/pozify-build-small-backyard-ai-track-win">Gradio Build Small Hackathon</a>.</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 24px; padding: 14px 0; border-bottom: 1px solid var(--line)">
+<div style="flex: 0 0 110px; font-family: var(--font-mono); font-size: 14px; color: var(--muted)">May 2026</div>
+<div style="flex: 999 1 320px; min-width: 0; text-wrap: pretty"><strong style="font-weight: 600">Lumen</strong> won 3rd place and the SLNG award at the <a href="https://tihado.com/blogs/tech-europe-paris-ai-hackathon-lumen-win">&#123;Tech: Europe&#125; Paris AI Hackathon</a>.</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 24px; padding: 14px 0; border-bottom: 1px solid var(--line)">
+<div style="flex: 0 0 110px; font-family: var(--font-mono); font-size: 14px; color: var(--muted)">Apr 2026</div>
+<div style="flex: 999 1 320px; min-width: 0; text-wrap: pretty"><strong style="font-weight: 600">Posey</strong> won 1st place in the Startup Track at WELTARE Spring Sprint 1.1.4.</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 24px; padding: 14px 0; border-bottom: 1px solid var(--line)">
+<div style="flex: 0 0 110px; font-family: var(--font-mono); font-size: 14px; color: var(--muted)">Dec 2025</div>
+<div style="flex: 999 1 320px; min-width: 0; text-wrap: pretty"><strong style="font-weight: 600">Vidzly</strong> won 1st place for Creativity at the <a href="https://tihado.com/blogs/agents-mcp-hackathon-win">Agents &amp; MCP Hackathon</a>.</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 24px; padding: 14px 0; border-bottom: 1px solid var(--line)">
+<div style="flex: 0 0 110px; font-family: var(--font-mono); font-size: 14px; color: var(--muted)">Dec 2025</div>
+<div style="flex: 999 1 320px; min-width: 0; text-wrap: pretty"><strong style="font-weight: 600">EatAble</strong> won 3rd place at the <a href="https://tihado.com/blogs/amd-robotics-hackathon-win">AMD Open Robotics Hackathon</a>.</div>
+</div>
+</div>
+<a href="/news" style="font-weight: 500; padding: 10px 0; align-self: flex-start">All news →</a>
+</section>
+
+</main>
 </Layout>

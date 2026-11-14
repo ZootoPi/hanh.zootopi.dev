@@ -2,17 +2,23 @@
 import "@fontsource-variable/geist";
 import "@fontsource-variable/geist-mono";
 import "../styles/globals.css";
-import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
 
 interface Props {
   title?: string;
   description?: string;
+  /** Which nav item is active: work, experience, research, teaching, resume. */
+  current?: string;
+  /** "cta" is the large contact footer used on the home page. */
+  footer?: "cta" | "compact";
 }
 
 const {
-  title = "Hanh Tran - NLP Engineer",
-  description = "Personal website of Hanh Tran, NLP Engineer at Arkhn. Research interests in natural language processing, information extraction, low-resourced languages, generative AI, and large-scale language models.",
+  title = "Hanh Tran – Applied AI Engineer",
+  description = "Hanh Tran, Applied AI Engineer and founder of Tihado. Agentic AI products from hackathon prototype to hospital production.",
+  current = "",
+  footer = "compact",
 } = Astro.props;
 ---
 
@@ -25,11 +31,9 @@ const {
     <link rel="icon" href="/favicon.ico" />
     <title>{title}</title>
   </head>
-  <body class="flex min-h-screen flex-col antialiased">
-    <Navigation />
-    <main class="flex-1 pt-20">
-      <slot />
-    </main>
-    <Footer />
+  <body>
+    <Header current={current} />
+    <slot />
+    <Footer variant={footer} />
   </body>
 </html>
